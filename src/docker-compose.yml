@@ -1,0 +1,45 @@
+services:
+  controller:
+    container_name: controller
+    ports:
+      - "3000:8080"
+    build:
+      context: site/
+    environment:
+      - JWTKEY=PXkGLtn0JZ5DFf4
+      - DBHOST=database
+      - DBPORT=5432
+      - DBNAME=site_database
+      - DBUSERNAME=postgres
+      - DBPASSWORD=postgres
+      - DBSSLMODE=disable
+      - TIMEZONE=Europe/Moscow
+      - DC=y
+    volumes:
+      - ./site/src/static:/app/static
+    networks:
+      - default_network
+    depends_on:
+      - database
+
+
+  database:
+    container_name: database
+    image: postgres:latest
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: site_database
+    volumes:
+      - database:/var/lib/postgresql/data
+    networks:
+      - default_network
+
+volumes:
+  database:
+
+networks:
+  default_network:
+    driver: bridge

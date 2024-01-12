@@ -1,0 +1,39 @@
+{{define "base"}}
+
+    <!DOCTYPE html>
+    <html lang='en'>
+    <head>
+        <meta charset='utf-8'>
+        <title>{{ .title }}</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="/css/game_menu.css" rel="stylesheet" type="text/css">
+        <link href="/css/signup.css" rel="stylesheet">
+        <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css">
+        <script src="/bootstrap/js/bootstrap.js"></script>
+        <script src="/bootstrap/js/bootstrap.bundle.js"></script>
+        <script src="/js/tools.js"></script>
+
+        <style>
+            .container {
+                padding-left: 15px;
+                padding-right: 15px;
+            }
+
+            th:hover {
+                cursor: pointer;
+            }
+        </style>
+
+
+    </head>
+    <body>
+{{/*    <div>*/}}
+        {{block "header" .}}{{ end }}
+        <container class="container">
+            {{block "main" .}}{{ end }}
+            {{block "banner" .}}{{ end }}
+        </container>
+{{/*    </div>*/}}
+    </body>
+    </html>
+{{end}}

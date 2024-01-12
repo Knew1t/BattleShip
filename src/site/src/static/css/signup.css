@@ -1,0 +1,53 @@
+.form {
+    font-family: arial, sans-serif;
+    font-size: 12px;
+    border: 2px solid grey;
+    max-width: 250px;
+    margin: 200px auto;
+    padding: 20px;
+}
+
+
+input {
+    display: block;
+    border: 2px solid grey;
+    width: 200px;
+    margin: 0 auto;
+}
+
+.radio {
+    display: inline-block;
+    width: 10px;
+}
+
+.radioInputs {
+    display: flex;
+    justify-content: flex-end;
+    width: 200px;
+    margin: 0 auto;
+}
+
+.signInCallText {
+    font-size: 10px;
+    text-align: center;
+}
+
+a {
+    text-decoration: none;
+    color: cyan;
+}
+
+.field {
+    width: 200px;
+    margin: 20px auto;
+}
+
+.submitButton {
+    text-align: right;
+}
+
+button {
+    font-size: 10px;
+    background-color: white;
+}
+

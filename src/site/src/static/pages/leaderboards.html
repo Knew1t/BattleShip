@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Title</title>
+
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 50%;
+            margin: 20px;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th:hover {
+            cursor: pointer;
+        }
+    </style>
+
+    <script>
+        // Пример данных
+        var data = [
+            {login: "user1", winPercentage: 75, gameCount: 20},
+            {login: "user2", winPercentage: 60, gameCount: 15},
+            {login: "user3", winPercentage: 90, gameCount: 25},
+            // Добавьте свои данные по мере необходимости
+        ];
+
+        // Функция для отображения данных в таблице
+        function renderTable() {
+            var tableBody = document.getElementById("table-body");
+            tableBody.innerHTML = "";
+
+            data.forEach(function (item) {
+                var row = tableBody.insertRow();
+                var cell1 = row.insertCell(0);
+                var cell2 = row.insertCell(1);
+                var cell3 = row.insertCell(2);
+
+                cell1.textContent = item.login;
+                cell2.textContent = item.winPercentage + "%";
+                cell3.textContent = item.gameCount;
+            });
+        }
+
+        // Функция для сортировки данных по выбранному столбцу
+        function sortData(column) {
+            data.sort(function (a, b) {
+                if (column === "winPercentage") {
+                    return b[column] - a[column];
+                } else {
+                    return a[column] - b[column];
+                }
+            });
+
+            renderTable();
+        }
+    </script>
+
+</head>
+<body>
+<nav class="menu">
+    <div class="menu-button button-game">
+        <img src="images/game.svg" alt="game-icon">
+        <a href="">Game</a>
+    </div>
+    <div class="menu-button button-stats">
+        <img src="images/stats.svg" alt="stats-icon">
+        <a href="">Stats</a>
+    </div>
+    <div class="menu-button button-leaderboard">
+        <img src="images/leaderboard.svg" alt="leaderboard-icon">
+        <a href="">Best players</a>
+    </div>
+    <div class="menu-button button-logout">
+        <img src="images/logout.svg" alt="logout-icon">
+        <a href="/logout">Logout</a>
+    </div>
+</nav>
+<div>
+    <table>
+        <thead>
+        <tr>
+            <th onclick="sortData('login')">Логин</th>
+            <th onclick="sortData('winPercentage')">Процент выигрыша</th>
+            <th onclick="sortData('gameCount')">Количество игр</th>
+        </tr>
+        </thead>
+        <tbody id="table-body">
+        {% for item in items %}
+        <tr>
+            <td>{{ item.login }}</td>
+            <td>{{ item.winPercentage }}%</td>
+            <td>{{ item.winPercent }}</td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+</body>
+</html>

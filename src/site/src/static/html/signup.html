@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Регистрация</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="/css/signup.css" rel="stylesheet">
+    <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css">
+    <script defer src="/js/signup.js"></script>
+
+    <style>
+        #main_div {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            height: 100vh;
+        }
+    </style>
+
+</head>
+
+<body>
+<main id="main_div">
+    <div class="m-auto" style="display: block; max-width: 800px">
+        <form class="needs-validation" novalidate="">
+            <h1 class="h3 mb-3">Регистрация</h1>
+            <div class="row g-3">
+                <div class="col-12 form-floating">
+                    <input type="text" class="form-control" autocomplete="username" name="login" id="username" placeholder="Username" required>
+                    <label for="username" class="form-label">Логин</label>
+                    <div class="invalid-feedback">
+                        Логин может содержать только английские буквы, цифры, нижнее подчеркивание и тире
+                    </div>
+                </div>
+                <div class="col-12 form-floating">
+                    <input type="password" class="form-control" name="password" id="password"
+                           placeholder="Не меньше 8 символов" autocomplete="new-password" required>
+                    <label for="password" class="form-label">Пароль</label>
+                    <div class="invalid-feedback">
+                        Пароль должен содержать не меньше 8 символов
+                    </div>
+                </div>
+                <div class="col-12 form-floating">
+                    <input type="password" class="form-control" id="confirmPassword" autocomplete="new-password"  placeholder="Не меньше 8 символов"
+                           required>
+                    <label for="confirmPassword" class="form-label">Пароль (повторно)</label>
+                    <div class="invalid-feedback">
+                        Пароли не совпадают!
+                    </div>
+                </div>
+
+            </div>
+
+            <hr class="my-4">
+
+            <button id="signUpButton" class="w-100 btn btn-primary btn-lg mb-3" type="button" onclick="regClick()">Зарегистрироваться</button>
+        </form>
+        <p class="">Есть аккаунт? <a href="/signIn">Войдите</a></p>
+    </div>
+</main>
+</body>
+</html>
+
