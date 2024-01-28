@@ -17,14 +17,14 @@ module.exports = {
       },
     ],
   },
-  // plugins: [
-  //   new HtmlWebpackPlugin({
-  //     template: "./pages/game_menu.html",
-  //   }),
-  // ],
-  // devServer: {
-  //   static: ["css", "images"],
-  //   port: 3000,
-  //   open: true,
-  //  },
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: "./pages/game_menu.html",
+    }),
+  ],
+  devServer: {
+    static: ["css", "images"],
+    port: 3000,
+    open: true,
+   },
 };
